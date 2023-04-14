@@ -17,12 +17,17 @@ function App() {
     setIsLoggedIn(false);
   };
 
-  return (
+  return ( 
     <React.Fragment>
       <MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />
       <main>
-        {!isLoggedIn && <Login onLogin={loginHandler} />}
-        {isLoggedIn && <Home onLogout={logoutHandler} />}
+        {/* {!isLoggedIn && <Login onLogin={loginHandler} />}
+        {isLoggedIn && <Home onLogout={logoutHandler} />} */}
+        {!isLoggedIn ? (
+          <Login onLogin={loginHandler} />
+        ) : (
+          <Home onLogout={logoutHandler} />
+        )}
       </main>
     </React.Fragment>
   );
